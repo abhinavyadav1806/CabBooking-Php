@@ -42,7 +42,6 @@
                     $sql2 = "UPDATE tbl_ride SET status = '1'  WHERE ride_id ='".$idpass."' ";
                     $result = $connect->query($sql2);
                 }
-             
             }  
         }
 
@@ -119,28 +118,26 @@
                 $sql="SELECT * FROM tbl_user WHERE `is_admin`='0'
                 ORDER BY `name` DESC
                 LIMIT 0, 7";
-                $result=$connect->query($sql);
+                $result = $connect->query($sql);
                 if ($result->num_rows > 0) 
                 {
                     while ($row= $result->fetch_assoc()) 
                     {
-                        $a.='<td style="padding: 15px">'.$row['user_id'].'</td>';
                         $a.='<td style="padding: 15px">'.$row['user_name'].'</td>';
                         $a.='<td style="padding: 15px">'.$row['name'].'</td>';
-                        $a.='<td style="padding: 15px">'.$row['dateofsignup'].'</td>';
                         $a.='<td style="padding: 15px">'.$row['mobile'].'</td></tr>';
+                        $a.='<td style="padding: 15px">'.$row['dateofsignup'].'</td>';     
                     }
                     $a.='</table>';
                     echo $a;
                 }
-            
             }
 
-            if($filter=='ride_date')
+            if($filter=='date')
             {
                 $sql="SELECT * FROM tbl_ride
                 ORDER BY ride_date DESC ";
-                $result=$connect->query($sql);
+                $result = $connect->query($sql);
                 if ($result->num_rows > 0) 
                 {
                     while ($row= $result->fetch_assoc()) 

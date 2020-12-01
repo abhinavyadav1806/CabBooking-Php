@@ -85,9 +85,9 @@
                 <center>Filter Value:-
                     <select name="filter" id="filter">
                         <option value="Select Value">Select Value</option>
-                        <option value="1">By Fare</option>
                         <option value="7">7 days</option>
                         <option value="30">30 days</option>
+                        <option value="1">By Fare</option>
                     </select>
                     <input type="submit" value="submit" name="submit" class="submit">
                 </center>

@@ -5,7 +5,7 @@
     {
         header("Location: customerDash.php");
     }
-    if($_SESSION['userdata']['isadmin'] == 1)
+    if(isset($_SESSION['userdata']['isadmin']) == 1)
     {
         header("Location: login.php");
     }
@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4">
-                <form class="bg-white p-1" action="" method="POST">
+                <form class="bg-white p-1" action="tobook.php" method="POST">
                     <div class="content">
                         <p class="text-center"><span class="taxi mt-3">CITY TAXI</span></p>
                         <hr>
@@ -81,7 +81,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">PICKUP</label>
                         </div>
-                        <select class="custom-select nosamelocation" id="current-location">
+                        <select name="pickup" class="custom-select nosamelocation" id="current-location">
                             <option selected disabled>Current-location</option>
                             <option value="charbagh">Charbagh</option>
                             <option value="indiranagar">Indira Nagar</option>
@@ -98,7 +98,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
                         </div>
-                        <select class="custom-select nosamelocation" id="drop-location">
+                        <select  name="drop" class="custom-select nosamelocation" id="drop-location">
                         <option selected disabled>Enter Drop for ride estimate</option>
                             <option value="charbagh">Charbagh</option>
                             <option value="indiranagar">Indira Nagar</option>
@@ -115,7 +115,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">CAB TYPE</label>
                         </div>
-                        <select class="custom-select" id="selectcartype" onchange="cartype()">
+                        <select name="cab" class="custom-select" id="selectcartype" onchange="cartype()">
                             <option selected disabled>Select-Cab-Type</option>
                             <option value="cedmicro">CedMicro</option>
                             <option value="cedmini">CedMini</option>
@@ -129,10 +129,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text text_size">Luggage</span>
                         </div>
-                        <input onkeypress="return onlynumber(event)" type="text" class="form-control" id="luggage" placeholder="Enter Weight In KG" >
+                        <input name="luggage" onkeypress="return onlynumber(event)" type="text" class="form-control" id="luggage" placeholder="Enter Weight In KG" >
                     </div>
                     <p id="luggagemsgintonly" class="msgstyle">Enter detail && Number allowed only</p>
-                    <input type="hidden" id="fare">
+                    <input type="hidden" id="fare" name="fare">
+                    <input type="hidden" id="distanceid" name="distanceid">
+
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"></div>
                         <input type="button" class="form-control" id="calculate-fare" value="Calculate-Fare">
@@ -140,8 +142,8 @@
 
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"></div>
-                        <a class="form-control" id="book-now" class="form-control" href="tobook.php" id="book-now" >Book Now</a>
-                        <!-- <input type="button" id="book-now" class="form-control" id="book-now" value="Book Now"> -->
+                        <!-- <a class="form-control" id="book-now" class="form-control"  id="book-now" >Book Now</a> -->
+                        <input type="submit" id="book-now" class="form-control" name="book" id="book-now" value="Book Now">
                     </div>
 
                     <div class="input-group mb-2 mt-3">
@@ -242,6 +244,10 @@
                                 path=msg.split(',');
                                 console.log(path);
                                 $('#distance').html(path[0]);
+
+                                $('#distanceid').val(path[0]);
+                                $('#fare').val(path[1]);
+
                                 $('#display').html(path[1]);
 
                                 $('#calculate-fare').hide();

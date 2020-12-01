@@ -20,13 +20,13 @@
 			<div id="profile-links">
 				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
 				<br />
-				<a href="#" title="View the Site">View the Site</a> | <a href="sidebar.php?id=1" title="Sign Out">Sign Out</a>
+				<a href="#" title="View the Site">View the Site</a> | <a href="logout.php" title="Sign Out">Sign Out</a>
 			</div>        
 			
 			<ul id="main-nav">  <!-- Accordion Menu -->
 
 				<li>
-					<a href="admininfo.php" class="nav-top-item no-submenu">Dashboard</a>       
+					<a href="index.php" class="nav-top-item no-submenu">Dashboard</a>       
 				</li>
 				
 				<li> 
@@ -94,19 +94,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.
 					<small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
 				</p>
-				<div>
-					<?php
-					if(isset($_GET['id'])==1){
-						session_start();
-						require_once('admin.php');
-						require_once('../dbConnect.php');
-
-						unset($_SESSION["userdata"]);
-						header("Location: ../login.php");
-					}
-					?>
-					
-				</div>
+				
 				<form action="#" method="post">
 					
 					<h4>New Message</h4>

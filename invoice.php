@@ -118,6 +118,8 @@
 		  <h5>NOTICE</h5>
 		  <textarea>**THIS INVOICE DOESN'T SURE YOUR RIDE CONFIRMATION**</textarea>
 		</div>
+
+		<h2><a href="javascript:window.print()">Click To Print</a></h2>
 	</div>
 </body>
 </html>

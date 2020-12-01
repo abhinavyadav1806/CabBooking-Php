@@ -6,15 +6,14 @@
 body 
 { 
 	font: 14px/1.4 Georgia, serif; 
-	background-color: gray;
 	padding: 20px;
+	background-color: rgb(182, 181, 181);
 }
 
 #page-wrap 
 {
 	width: 800px; 
-	margin: 0 auto; 
-	/* background: rgb(168, 167, 167);  */
+	margin: 0 auto;
 }
 
 textarea 

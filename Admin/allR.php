@@ -44,9 +44,43 @@
 				<div class="content-box-content">
 					
 					<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+					<div class="select">
+
+						<form action="allR.php" method="POST">
+							<center>Filter Value:-
+								<select name="filter" id="filter">
+									<option value="Select Value">Select Value</option>
+									<option value="name">Name</option>
+									<option value="date">Date</option>
+									<option value="fare">Fare</option>
+								</select>
+								<input type="submit" value="submit" name="submit" class="submit">
+							</center>
+						</form>
+
+						<?php
+
+							if (isset($_POST['submit'])) 
+							{
+								$dbConnect = new dbConnect();
+								$ab = new admin();
+
+								$filter=isset($_POST['filter'])?$_POST['filter']:'';
+								if($filter=='fare'|| $filter=='date')
+								{
+									$a='<table><tr> <th><b>Ride Id</b></th>  <th><b>Ride Date</b></th> <th><b>Pickup</b></th> <th><b>Destination</b></th> <th><b>Distance</b></th> <th><b>Fare</b></th> <th><b>Luggage</b></th> </tr><tr>';
+									$ab->filterrr($a,$filter,$dbConnect->connect);
+								}
+								else
+								{
+									$a='<table><tr> <th><b>UserName</b></th>  <th><b>Name</b></th> <th><b>Contact</b></th> <th><b>Date</b></th> </tr><tr>';
+									$ab->filterrr($a,$filter,$dbConnect->connect);
+								}
+							}
+						?>
+					</div>
 
 						<table>
-							
 							<thead>
 								<tr>
 								   <!-- <th><input class="check-all" type="checkbox" /></th> -->

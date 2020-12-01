@@ -2,6 +2,18 @@
     include('dbConnect.php');
     include('user.php');
 
+    if(isset($_SESSION['cabinfo']))
+    {
+        $pickup = $_SESSION['cabinfo']['pickup'];
+        $drop = $_SESSION['cabinfo']['drop'];
+        $luggage = $_SESSION['cabinfo']['luggage'];
+        $cab = $_SESSION['cabinfo']['cab'];
+        $distanceid = $_SESSION['cabinfo']['distanceid'];
+        $fare = $_SESSION['cabinfo']['fare'];
+    }
+
+    // print_r($_SESSION['cabinfo']);
+
     $dbConnect = new dbConnect();
     $user = new user();
 ?>
@@ -98,15 +110,20 @@
                             <label class="input-group-text text_size" for="inputGroupSelect01">PICKUP</label>
                         </div>
                         <select class="custom-select nosamelocation" id="current-location">
-                            <option selected disabled>Current-location</option>
-                            <!-- <option value="charbagh">Charbagh</option>
-                            <option value="indiranagar">Indira Nagar</option>
-                            <option value="bbd">BBD</option>
-                            <option value="barabanki">Barabanki</option>
-                            <option value="faizabad">Faizabad</option>
-                            <option value="basti">Basti</option>
-                            <option value="gorakhpur">Gorakhpur</option> -->
-                            <?php
+                            <option selected>
+                                <?php 
+                                    if(isset($pickup))
+                                    { 
+                                        echo $pickup;
+                                    }
+                                    else
+                                    {
+                                        echo " Enter Your Pickup Location";
+                                    }
+                                ?>
+                            </option>
+
+                            <?php 
                                 $user->show_location($dbConnect->connect);
                             ?>
                         </select>
@@ -118,27 +135,44 @@
                             <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
                         </div>
                         <select class="custom-select nosamelocation" id="drop-location">
-                            <option selected disabled>Enter Drop for ride estimate</option>
-                            <!-- <option value="charbagh">Charbagh</option>
-                            <option value="indiranagar">Indira Nagar</option>
-                            <option value="bbd">BBD</option>
-                            <option value="barabanki">Barabanki</option>
-                            <option value="faizabad">Faizabad</option>
-                            <option value="basti">Basti</option>
-                            <option value="gorakhpur">Gorakhpur</option> -->
-                            <?php
+                        <option selected>
+                                <?php 
+                                    if(isset($drop))
+                                    { 
+                                        echo $drop;
+                                    }
+                                    else
+                                    {
+                                        echo " Enter Your Drop Location";
+                                    }
+                                ?>
+                            </option>
+
+                            <?php 
                                 $user->show_location($dbConnect->connect);
                             ?>
                         </select>
                     </div>
                     <p id="dropmsg" class="msgstyle">Enter Destination </p>
 
+
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">CAB TYPE</label>
                         </div>
                         <select class="custom-select" id="selectcartype" onchange="cartype()">
-                            <option selected disabled>Select-Cab-Type</option>
+                            <option selected>
+                                <?php 
+                                    if(isset($cab))
+                                    { 
+                                        echo $cab;
+                                    }
+                                    else
+                                    {
+                                        echo " Enter Your CabType";
+                                    }
+                                ?>    
+                            </option>
                             <option value="cedmicro">CedMicro</option>
                             <option value="cedmini">CedMini</option>
                             <option value="cedsuv">CedSuv</option>
@@ -146,19 +180,23 @@
                         </select>
                     </div>
                     <p id="cartypemsg" class="msgstyle">Enter CarType </p>
+                    
 
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text text_size">Luggage</span>
                         </div>
-                        <input onkeypress="return onlynumber(event)" type="text" class="form-control" id="luggage" placeholder="Enter Weight In KG" >
+                        <input onkeypress="return onlynumber(event)" type="text" class="form-control" id="luggage" placeholder="Enter Weight In KG" value="<?php if(isset($luggage)){ echo $luggage;} else{echo "Enter Weight In KG"; }?>" >
                     </div>
                     <p id="luggagemsgintonly" class="msgstyle">Enter detail && Number allowed only</p>
+
+
                     <input type="hidden" id="fare">
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"></div>
-                        <input type="button" class="form-control" id="calculate-fare" value="Calculate-Fare">
+                        <input type="button" class="form-control" id="calculate-fare" value="Calculate-Fare" <?php if(isset($fare)){ echo $fare;} else{echo "_"; }?>>
                     </div>
+
 
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"></div>
@@ -166,12 +204,14 @@
                         <!-- <input type="button" id="book-now" class="form-control" id="book-now" value="Book Now"> -->
                     </div>
 
+
                     <div class="input-group mb-2 mt-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Your Total Distance is:--</span>
                             <div id="distance" class="form-control"></div>
                         </div>
                     </div>
+
 
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">

@@ -133,6 +133,8 @@
 
             if ($result->num_rows > 0)    
             {
+
+                return $result;
                 while ($row= $result->fetch_assoc()) 
                 {
                     $show = '<option value='.$row['name'].'>' .$row['name'].'</option>';
