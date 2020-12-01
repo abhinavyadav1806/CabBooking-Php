@@ -7,6 +7,16 @@
 	include("header.php");
 	include("sidebar.php");
 
+	// if(!isset($_SESSION['userdata']['username']))
+	// {
+	// 	header("Location: ../login.php");
+	// }
+	// if($_SESSION['userdata']['username']!='admin')
+	// {
+	// 	header("Location: ../login.php");
+	// 	return;
+	// }
+	
 	if(isset($_GET['id']))
 	{
 		// echo "<center>".$_GET['id']."</center>";

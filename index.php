@@ -5,6 +5,10 @@
     {
         header("Location: customerDash.php");
     }
+    if($_SESSION['userdata']['isadmin'] == 1)
+    {
+        header("Location: login.php");
+    }
 ?>
 
 <html>
