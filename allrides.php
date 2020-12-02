@@ -82,6 +82,37 @@
         </header>
 
         <div class="select mt-5">
+            <form action="allrides.php" method="POST">
+                <center>Filter Value:-
+                    <select name="filter" id="filter">
+                        <option value="Select Value">Select Value</option>
+                        <option value="7">7 days</option>
+                        <option value="30">30 days</option>
+                        <option value="1">By Fare</option>
+                    </select>
+                    <input type="submit" value="submit" name="submit" class="submit">
+                </center>
+            </form>
+
+            <?php
+                if (isset($_POST['submit'])) 
+                {
+                    $filter = isset($_POST['filter'])?$_POST['filter']:'';
+                    if($filter==1)
+                    {
+                        $a='<table> <tr><th>Id</th> <th>Date</th> <th>Pickup</th> <th>Drop</th> <th>Distance</th> <th>Fare</th> <th>Luggage</th> </tr><tr>';
+                        $user->filter($a,$filter,$dbConnect->connect);
+                    }
+                    else
+                    {
+                        $a='<table><tr><th>Id</th><th>User Name</th><th>Name</th><th>Date Of Signup</th><th>Mobile</th></tr><tr>';
+                        $user->filter($a,$filter,$dbConnect->connect);
+                    }
+                }
+            ?>
+        </div>         
+
+        <div class="select mt-5">
             <?php
                 echo'<h2 class="h2 text-center">Your Rides With Us Till Now</h2>';
                 echo'<table id="table" class="mt-5">

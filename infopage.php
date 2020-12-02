@@ -46,7 +46,6 @@
                 </button>     
 
                 <ul class="navbar-nav">
-                
                     <li class="nav-item">
                         <a class="nav-link" href="infopage.php">Account Info</a>
                     </li>

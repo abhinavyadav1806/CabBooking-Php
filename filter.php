@@ -99,7 +99,7 @@
                     $filter = isset($_POST['filter'])?$_POST['filter']:'';
                     if($filter==1)
                     {
-                        $a='<table><tr><th>Id</th><th>User Name</th><th>Name</th><th>Date Of Signup</th><th>Mobile</th></tr><tr>';
+                        $a='<table> <tr><th>Id</th> <th>Date</th> <th>Pickup</th> <th>Drop</th> <th>Distance</th> <th>Fare</th> <th>Luggage</th> </tr><tr>';
                         $user->filter($a,$filter,$dbConnect->connect);
                     }
                     else
