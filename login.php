@@ -13,6 +13,10 @@
         $sql = $user->login($username, $password, $dbConnect->connect);
         echo $sql;
     }
+    elseif(isset($_POST['cancelbtn']))
+    {
+        header("Location: index.php");
+    }
 ?>
 <html>
     <head>
@@ -31,10 +35,10 @@
 
                 <div>
                     <label  class="col-25" for="username"><b>Username</b></label>
-                    <input  class="col-75" type="text" name="username" placeholder="Enter Username"  required>
+                    <input  class="col-75" type="text" name="username" placeholder="Enter Username">
 
                     <label  class="col-25" for="password"><b>Password</b></label>
-                    <input  class="col-75" type="password" name="password" placeholder="Enter Password"required>
+                    <input  class="col-75" type="password" name="password" placeholder="Enter Password">
 
                     <button type="submit" name="submit">Login</button>
                     <!-- <label>
@@ -43,8 +47,8 @@
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
+                    <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn">Cancel</button>
+                    <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
                 </div>
             </form>
         </div>

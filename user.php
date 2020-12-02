@@ -79,32 +79,38 @@
             $connect->close(); 
         }
     
-        function update($username, $name, $mobile, $password, $repassword, $connect)
+        function update($username, $name, $mobile, $previouspassword, $password, $repassword, $connect)
         {
-            if($password != $repassword)
-            {
-                //$error[] = array('input' => 'password', 'msg' => 'PASSWORD DONT MATCH');
-                echo "enter pass";
-            }
-
-            $sql = "SELECT * FROM tbl_user ";
+            $checkpassword = $_SESSION['userdata']['password'];
             
-            $result= mysqli_query($connect,$sql);
-
-            $x = $_SESSION['userdata']['userid'];
-
-            $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' , `password` = MD5('$password') WHERE user_id = $x";
-            
-            if($connect ->query($update) === TRUE)
+            if(md5($previouspassword) == $checkpassword)
             {
-                // echo "New Record Added Successfully";
-                header("Location:dashboard.php");
+                if($password != $repassword)
+                {
+                    //$error[] = array('input' => 'password', 'msg' => 'PASSWORD DONT MATCH');
+                    echo "Enter Same Password";
+                }
+    
+                $sql = "SELECT * FROM tbl_user ";
+                
+                $result= mysqli_query($connect,$sql);
+    
+                $x = $_SESSION['userdata']['userid'];
+    
+                $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' , `password` = MD5('$password') WHERE user_id = $x";
+                
+                if($connect ->query($update) === TRUE)
+                {
+                    // echo "New Record Added Successfully";
+                    unset($_SESSION["userdata"]);
+                    header("Location: login.php");
+                }
             }
             else
             {
-                echo "failed";
-            }  
-            $connect->close();
+                echo "Previous Password Not Matched";
+            }
+           
         }
 
         function ride($pickup, $drop, $luggage, $fare, $distance, $connect)

@@ -9,13 +9,13 @@
         $username = isset($_POST['username']) ? ($_POST['username']) : "";
         $name = isset($_POST['name']) ? ($_POST['name']) : "";
         $mobile = isset($_POST['mobile']) ? ($_POST['mobile']) : "";
+        $previouspassword  = isset($_POST['previouspassword']) ? ($_POST['previouspassword']) : "";
         $password = isset($_POST['password']) ? ($_POST['password']) : "";
         $repassword = isset($_POST['repassword']) ? ($_POST['repassword']) : "";
         // echo $username ,$name, $mobile, $password, $repassword;
 
         $user = new user();
-        
-        $sql = $user->update($username, $name, $mobile, $password, $repassword, $dbConnect->connect);
+        $sql = $user->update($username, $name, $mobile, $previouspassword, $password, $repassword, $dbConnect->connect);
     }
     elseif(isset($_POST['back']))
     {   
@@ -69,11 +69,21 @@
 
                 <div class="row">
                     <div class="col-25">
+                        <label for="password">Previous Password</label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="password" id="previouspassword" name="previouspassword" placeholder="Enter Previous Password..">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
                         <label for="password">Password</label>
                     </div>
 
                     <div class="col-75">
-                        <input type="password" id="password" name="password" placeholder="Enter Password.." value="<?php echo $_SESSION['userdata']['password']?>">
+                        <input type="password" id="password" name="password" placeholder="Enter Password..">
                     </div>
                 </div>
 

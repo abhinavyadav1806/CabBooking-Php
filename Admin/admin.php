@@ -23,6 +23,37 @@
             }  
         }
 
+        function update($username, $name, $mobile, $previouspassword, $password, $repassword, $connect)
+        {
+            $checkpassword = $_SESSION['userdata']['password'];
+            
+            if(md5($previouspassword) == $checkpassword)
+            {
+                if($password != $repassword)
+                {
+                    //$error[] = array('input' => 'password', 'msg' => 'PASSWORD DONT MATCH');
+                    echo "Enter Same Password";
+                }
+    
+                $sql = "SELECT * FROM tbl_user ";
+                
+                $result= mysqli_query($connect,$sql);
+    
+                $x = $_SESSION['userdata']['userid'];
+    
+                $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' , `password` = MD5('$password') WHERE user_id = $x";
+                
+                if($connect ->query($update) === TRUE)
+                {
+                    echo "INFORMATION UPDATED Successfully";
+                }
+            }
+            else
+            {
+                echo "Previous Password Not Matched";
+            }
+        }
+
         function Ride($idpass,$connect)
         {
             $sql = "SELECT * from tbl_ride WHERE ride_id = '".$idpass."'";
