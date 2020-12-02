@@ -148,13 +148,11 @@
 
         function show_location($connect)
         {
-            $sql = "SELECT * from `tbl_location` WHERE `is_available`='1'";
+            $sql = "SELECT * from `tbl_location` WHERE `is_available`= 1 ";
             $result = $connect->query($sql);
 
             if ($result->num_rows > 0)    
             {
-
-                return $result;
                 while ($row= $result->fetch_assoc()) 
                 {
                     $show = '<option value='.$row['name'].'>' .$row['name'].'</option>';

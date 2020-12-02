@@ -50,7 +50,7 @@
 								
 								<p>
 									<label>Location Name</label>
-									<input class="text-input small-input" type="text" id="small-input" name="name"/>
+									<input class="text-input small-input" type="text" id="small-input" onkeypress="return alphaonly(event)" name="name"/>
 								</p>
 								
 								<p>
@@ -74,6 +74,17 @@
 			</div> <!-- End .content-box -->
 					
 			<div class="clear"></div>
+
+			<script>
+            	function alphaonly(button) 
+				{ 
+					console.log(button.which);
+					var code = button.which;
+					if ((code > 64 && code < 91) || (code < 123 && code > 96)|| (code==08)||(code < 58 && code > 47))
+					return true; 
+					return false; 
+				} 
+        	</script>
 	
 			<?php include("footer.php"); ?>
 			

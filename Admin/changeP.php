@@ -54,7 +54,7 @@
 								
 								<p>
 									<label>Name</label>
-									<input class="text-input medium-input datepicker" type="text" id="name" name="name" placeholder="Enter Name.." value="<?php echo $_SESSION['userdata']['name']?>">
+									<input class="text-input medium-input datepicker" type="text" id="name" name="name" placeholder="Enter Name.." onkeypress="return alphaonly(event)" value="<?php echo $_SESSION['userdata']['name']?>">
 								</p>
 
                                 <p>
@@ -92,6 +92,17 @@
 			</div> <!-- End .content-box -->
 					
 			<div class="clear"></div>
+
+			<script>
+            	function alphaonly(button) 
+				{ 
+					console.log(button.which);
+					var code = button.which;
+					if ((code > 64 && code < 91) || (code < 123 && code > 96)|| (code==08)||(code < 58 && code > 47))
+					return true; 
+					return false; 
+				} 
+        	</script>
 	
 			<?php include("footer.php"); ?>
 			

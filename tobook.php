@@ -13,7 +13,7 @@
     {    $_SESSION['cabinfo']=array('pickup'=>$_POST['pickup'],  'drop'=>$_POST['drop'],  'luggage'=>$_POST['luggage'], 
         'cab'=>$_POST['cab'],   
         'fare'=>$_POST['fare'],   
-        'distanceid'=>$_POST['distanceid'],   );
+        'distanceid'=>$_POST['distanceid'],);
         
         header('Location: login.php'); 
     }
