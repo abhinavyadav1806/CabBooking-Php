@@ -53,6 +53,20 @@ input[type=submit]
   width: 20%;
 }
 
+#home
+{
+  background-color: #b30000;
+  color: white;
+  padding: 12px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  width: 20%;
+}
+
+
 input[type=submit]:hover 
 {
   background-color: #45a049;

@@ -47,10 +47,10 @@
 							
 							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
 								
-								<p>
+								<!-- <p>
 									<label>User Name</label>
 									<input class="text-input small-input" type="text" id="small-input" placeholder="You Cant change the username..!!" readonly>
-								</p>
+								</p> -->
 								
 								<p>
 									<label>Name</label>

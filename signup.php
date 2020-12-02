@@ -22,6 +22,10 @@
     {
         header("Location:login.php");
     }
+    elseif(isset($_POST['home']))
+    {
+        header("Location: index.php");
+    }
 ?>
 
 <html>
@@ -95,7 +99,12 @@
                 <div class="row">
                     <input type="submit" id="already" name="already" value="Already Customer? Login">
                 </div>
+
+                <div class="row">
+                    <input type="submit" id="home" name="home" value="Home Page">
+                </div>
             </form>
         </div>
     </body>
+    <?php include('footer.php'); ?>
 </html>

@@ -17,6 +17,10 @@
     {
         header("Location: index.php");
     }
+    elseif(isset($_POST['signup']))
+    {
+        header("Location: signup.php");
+    }
 ?>
 <html>
     <head>
@@ -25,7 +29,6 @@
     </head>
 
     <body>
-        
         <div class="form-popup" id="myForm">
             <form action="" method="post">
 
@@ -47,10 +50,14 @@
                 </div>
 
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn">Cancel</button>
+                    <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn"  style="float:right;">Home</button>
+                    <button type="submit" class="signup" name="signup" id="signup">Sign Up</button>
                     <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
                 </div>
             </form>
         </div>
+
+        <?php include('footer.php'); ?>
+        
     </body>
 </html>

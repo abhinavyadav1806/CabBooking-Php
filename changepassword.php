@@ -6,16 +6,14 @@
 
     if(isset($_POST['update']))
     {
-        $username = isset($_POST['username']) ? ($_POST['username']) : "";
-        $name = isset($_POST['name']) ? ($_POST['name']) : "";
         $mobile = isset($_POST['mobile']) ? ($_POST['mobile']) : "";
-        // $previouspassword  = isset($_POST['previouspassword']) ? ($_POST['previouspassword']) : "";
-        // $password = isset($_POST['password']) ? ($_POST['password']) : "";
-        // $repassword = isset($_POST['repassword']) ? ($_POST['repassword']) : "";
+        $previouspassword  = isset($_POST['previouspassword']) ? ($_POST['previouspassword']) : "";
+        $password = isset($_POST['password']) ? ($_POST['password']) : "";
+        $repassword = isset($_POST['repassword']) ? ($_POST['repassword']) : "";
         // echo $username ,$name, $mobile, $password, $repassword;
 
         $user = new user();
-        $sql = $user->update($username, $name, $mobile, $dbConnect->connect);
+        $sql = $user->changepassword($username, $name, $mobile, $previouspassword, $password, $repassword, $dbConnect->connect);
     }
     elseif(isset($_POST['back']))
     {   
@@ -28,13 +26,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/signup.css">
         <title>
-            Update Info
+            Change Password
         </title>
     </head>
 
     <body>
         <div class="container">
-            <h1 class="heading">Update Details</h1>
+            <h1 class="heading">Change Password</h1>
         
             <form action="" method="POST">
                 
@@ -48,7 +46,7 @@
                     </div>
                 </div> -->
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-25">
                         <label for="name">Name</label>
                     </div>
@@ -56,9 +54,9 @@
                     <div class="col-75">
                         <input type="text" id="name" name="name" placeholder="Enter Name.." value="<?php echo $_SESSION['userdata']['name']?>">
                     </div>
-                </div>
+                </div> -->
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-25">
                         <label for="mobile">Mobile</label>
                     </div>
@@ -66,9 +64,9 @@
                     <div class="col-75">
                         <input type="number" id="mobile" name="mobile" placeholder="Enter Mobile Number.." value="<?php echo $_SESSION['userdata']['mobile']?>">
                     </div>
-                </div>
+                </div> -->
 
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-25">
                         <label for="password">Previous Password</label>
                     </div>
@@ -96,7 +94,7 @@
                     <div class="col-75">
                         <input type="password" id="repassword" name="repassword" placeholder="Enter Password Again..">
                     </div>
-                </div> -->
+                </div>
 
                 <div class="row">
                     <input type="submit" name="update" value="Update">

@@ -9,7 +9,6 @@
                 // $error[] = array('password', 'msg' => 'Enter Same Password');
                 return 'Enter Same Password';
             }
-
             $sql = "SELECT * FROM tbl_user";
             $result = mysqli_query($connect,$sql);
 
@@ -18,8 +17,8 @@
                 while($row=$result->fetch_assoc())
                 {
                     $_SESSION['user']=array('username'=>$row['user_name'], 'isblock'=>$row['is_block']);
-                    
-                    if($_SESSION['user']['username'] == $username)
+                    $strtolower = strtolower($username);
+                    if($_SESSION['user']['username'] == $strtolower)
                     {
                         return "Enter Unique User Name";
                     }
@@ -79,10 +78,27 @@
             $connect->close(); 
         }
     
-        function update($username, $name, $mobile, $previouspassword, $password, $repassword, $connect)
+        function update($username, $name, $mobile, $connect)
+        {
+            $sql = "SELECT * FROM tbl_user ";
+                
+            $result= mysqli_query($connect,$sql);
+    
+            $x = $_SESSION['userdata']['userid'];
+    
+            $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' WHERE user_id = $x";
+                
+            if($connect ->query($update) === TRUE)
+            {
+                // echo "New Record Added Successfully";
+                header("Location: customerDash.php");
+            }
+        }
+
+        function changepassword($username, $name, $mobile, $previouspassword, $password, $repassword, $connect)
         {
             $checkpassword = $_SESSION['userdata']['password'];
-            
+
             if(md5($previouspassword) == $checkpassword)
             {
                 if($password != $repassword)
@@ -96,8 +112,7 @@
                 $result= mysqli_query($connect,$sql);
     
                 $x = $_SESSION['userdata']['userid'];
-    
-                $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' , `password` = MD5('$password') WHERE user_id = $x";
+                $update = "UPDATE tbl_user SET `password` = MD5('$password') WHERE user_id = $x";
                 
                 if($connect ->query($update) === TRUE)
                 {
@@ -110,7 +125,6 @@
             {
                 echo "Previous Password Not Matched";
             }
-           
         }
 
         function ride($pickup, $drop, $luggage, $fare, $distance, $connect)
