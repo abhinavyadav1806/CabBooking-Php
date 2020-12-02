@@ -45,9 +45,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>     
 
-                <!-- Links -->
                 <ul class="navbar-nav">
-                
                     <li class="nav-item">
                         <a class="nav-link" href="infopage.php">Account Info</a>
                     </li>
@@ -69,14 +67,15 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="update.php">Update Info</a>
-                            <!-- <a class="dropdown-item" href="#">Change Password</a> -->
+                            <a class="dropdown-item" href="changepassword.php">Change Password</a>
+                            <a class="dropdown-item" href="filter.php">Filter</a>
                         </div>
                     </li>
 
                     <li class="nav-item float-right">
                         <a class="nav-link" href="logout.php">LogOut</a>
                     </li>
-                </ul>
+                </ul>   
             </nav>
         </header>
 

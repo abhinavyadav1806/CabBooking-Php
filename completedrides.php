@@ -45,7 +45,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>     
 
-                <!-- Links -->
                 <ul class="navbar-nav">
                 
                     <li class="nav-item">
@@ -69,7 +68,8 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="update.php">Update Info</a>
-                            <!-- <a class="dropdown-item" href="#">Change Password</a> -->
+                            <a class="dropdown-item" href="changepassword.php">Change Password</a>
+                            <a class="dropdown-item" href="filter.php">Filter</a>
                         </div>
                     </li>
 
