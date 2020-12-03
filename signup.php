@@ -38,6 +38,9 @@
     </head>
 
     <body>
+        <div>
+            <?php include('header.php'); ?>
+        </div>
         <div class="container">
             <h1 class="heading">SignUp</h1>
         

@@ -26,9 +26,13 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/login.css">
+        <title>Login</title>
     </head>
 
     <body>
+        <div>
+            <?php include('header.php'); ?>
+        </div>
         <div class="form-popup" id="myForm">
             <form action="" method="post">
 

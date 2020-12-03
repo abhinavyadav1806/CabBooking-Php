@@ -20,16 +20,18 @@
 
 <html>
     <head>
+        <center>
         <?php
             if(isset($_SESSION['userdata']['username']))  
             {
-                echo "<h3>Hello <b>" .$_SESSION['userdata']['username']. "</b> </h3>";
+                echo "<h3> Hello <b>" .$_SESSION['userdata']['username']. "</b> </h3>";
             }
             else
             {
                 echo "<h3>You are not logged In</h3>";
             }
         ?>
+        </center>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
