@@ -73,7 +73,7 @@
             else 
             {
             // $error[] = array('input' => 'form' , 'msg' => 'INVALID LOGIN DETAILS');
-            return 'INVALID LOGIN DETAILS';
+            return '<script>alert("INVALID LOGIN DETAILS")</script>'; 
             }
             $connect->close(); 
         }
@@ -225,10 +225,8 @@
         function filter($a,$filter,$connect)
         {
             if($filter==7)
-            {
-                $sql="SELECT * FROM tbl_user
-                ORDER BY `dateofsignup` DESC
-                LIMIT 0, 7";
+            {  
+                $sql="SELECT * FROM tbl_ride ORDER BY `ride_date` DESC";
                 $result=$connect->query($sql);
                 if ($result->num_rows > 0) 
                 {

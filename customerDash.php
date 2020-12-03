@@ -257,8 +257,8 @@
                 $('#dropmsg').hide();
                 $('#cartypemsg').hide();
                 $('#luggagemsgintonly').hide();
-                $('#calculate-fare').hide();
-                // $('#book-now').hide();
+                // $('#calculate-fare').hide();
+                $('#book-now').hide();
             
                 $('#calculate-fare').click(function() 
                 {
