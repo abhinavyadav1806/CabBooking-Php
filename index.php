@@ -21,7 +21,7 @@
             }
             else
             {
-                echo "<h3>You are not logged In</h3>";
+                echo "<h3>You are not logged In, Please Login to Enjoy Service</h3>";
             }
         ?>
         </center>
