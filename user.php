@@ -270,7 +270,7 @@
             if($filter==1)
             {
                 $sql="SELECT * FROM tbl_ride
-                ORDER BY total_fare DESC ";
+                ORDER BY total_fare ASC";
                 $result=$connect->query($sql);
                 if ($result->num_rows >0) 
                 {
