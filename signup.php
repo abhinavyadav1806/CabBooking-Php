@@ -104,14 +104,6 @@
                     <input type="submit" name="submit" value="Submit">
                 </div>
             </form>
-
-            <form>
-                <div class="row">
-                    <input type="submit" id="already" name="already" value="Already Customer? Login">
-                </div>
-            </form>
-
-
         </div>
     </body>
 </html>

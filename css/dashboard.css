@@ -20,7 +20,7 @@ span
     border: 1px solid rgba(201, 219, 0, 1);
     border-radius: 5px;
     padding: 5px;
-	background-color: rgba(201, 219, 0, 1);
+    cursor: pointer;
 }
 
 #display,#distance

@@ -23,7 +23,24 @@
             }  
         }
 
-        function update($username, $name, $mobile, $previouspassword, $password, $repassword, $connect)
+        function update($name, $mobile, $connect)
+        {
+            $sql = "SELECT * FROM tbl_user ";
+            
+            $result= mysqli_query($connect,$sql);
+
+            $x = $_SESSION['userdata']['userid'];
+
+            $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' WHERE user_id = $x";
+            
+            if($connect ->query($update) === TRUE)
+            {
+                echo "INFORMATION UPDATED Successfully";
+                // header("Location: changeI.php");
+            }
+        }
+
+        function password($previouspassword, $password, $repassword, $connect)
         {
             $checkpassword = $_SESSION['userdata']['password'];
             
@@ -41,11 +58,12 @@
     
                 $x = $_SESSION['userdata']['userid'];
     
-                $update = "UPDATE tbl_user SET `name` = '$name', `mobile` = '$mobile' , `password` = MD5('$password') WHERE user_id = $x";
+                $update = "UPDATE tbl_user SET `password` = MD5('$password') WHERE user_id = $x";
                 
                 if($connect ->query($update) === TRUE)
                 {
                     echo "INFORMATION UPDATED Successfully";
+                    header("Location: logout.php");
                 }
             }
             else

@@ -15,12 +15,9 @@
         $username = isset($_POST['username']) ? ($_POST['username']) : "";
         $name = isset($_POST['name']) ? ($_POST['name']) : "";
         $mobile = isset($_POST['mobile']) ? ($_POST['mobile']) : "";
-        $previouspassword  = isset($_POST['previouspassword']) ? ($_POST['previouspassword']) : "";
-        $password = isset($_POST['password']) ? ($_POST['password']) : "";
-        $repassword = isset($_POST['repassword']) ? ($_POST['repassword']) : "";
         // echo $username ,$name, $mobile, $password, $repassword;
 
-        $sql = $admin->password($previouspassword, $password, $repassword, $dbConnect->connect);
+        $sql = $admin->update($name, $mobile, $dbConnect->connect);
     } 
 ?>
 
@@ -52,29 +49,14 @@
 									<input class="text-input small-input" type="text" id="small-input" placeholder="You Cant change the username..!!" readonly>
 								</p> -->
 								
-								<!-- <p>
+								<p>
 									<label>Name</label>
 									<input class="text-input medium-input datepicker" type="text" id="name" name="name" placeholder="Enter Name.." onkeypress="return alphaonly(event)" value="<?php echo $_SESSION['userdata']['name']?>">
-								</p> -->
+								</p>
 
-                                <!-- <p>
+                                <p>
 									<label>Mobile</label>
 									<input class="text-input medium-input datepicker" type="number" id="mobile" name="mobile" placeholder="Enter Mobile Number.." value="<?php echo $_SESSION['userdata']['mobile']?>">
-								</p> -->
-
-                                <p>
-									<label>Previous Password</label>
-									<input class="text-input medium-input datepicker"  type="password" id="previouspassword" name="previouspassword" placeholder="Enter Previous Password..">
-								</p>
-
-                                <p>
-									<label>Password</label>
-									<input class="text-input medium-input datepicker" type="password" id="password" name="password" placeholder="Enter Password..">
-								</p>
-
-                                <p>
-									<label>RePassword</label>
-									<input class="text-input medium-input datepicker" type="password" id="repassword" name="repassword" placeholder="Enter Password Again..">
 								</p>
 
 								<p>

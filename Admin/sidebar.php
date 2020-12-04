@@ -63,6 +63,7 @@
 						Account
 					</a>
 					<ul>
+						<li><a <?php if($filename == 'changeI.php'): ?>class="current"<?php endif; ?> href="changeI.php">Change Info</a></li>
 						<li><a <?php if($filename == 'changeP.php'): ?>class="current"<?php endif; ?> href="changeP.php">Change Password</a></li>
 					</ul>
 				</li>      
