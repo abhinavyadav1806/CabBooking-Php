@@ -5,11 +5,32 @@
 
 .container 
 {
+  padding-left: 5px;
   border-radius: 5px;
-  background-color: #e4d1cf;
-  padding: 20px;
-  
+  background-color: #f3f0f0;
 }
+
+.imgcontainer 
+{
+  text-align: center;
+}
+
+img.avatar 
+{
+  width: 8%;
+  border-radius: 50%;
+}
+
+h3
+{
+  color: #dd2525;
+}
+
+/* form 
+{
+  padding: 20px;
+  border: 3px solid rgb(175, 174, 174);
+} */
 
 label 
 {
@@ -20,14 +41,14 @@ label
 .col-25 
 {
   float: left;
-  width: 20%;
+  width: 10%;
   margin-top: 6px;
 }
 
 .col-75 
 {
   float: left;
-  width: 75%;
+  width: 60%;
   margin-top: 6px;
 }
 
@@ -45,27 +66,13 @@ input[type=submit]
   background-color: #2d472e;
   color: white;
   padding: 12px 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: left;
-  width: 20%;
+  margin-left: 10%;
+  width: 60%;
 }
-
-#home
-{
-  background-color: #b30000;
-  color: white;
-  padding: 12px 20px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: left;
-  width: 20%;
-}
-
 
 input[type=submit]:hover 
 {
@@ -82,7 +89,6 @@ input[type=submit]:hover
   background-color: #5a0a0a;
 }
 
-/* Clear floats after the columns */
 .row:after 
 {
   content: "";
@@ -90,7 +96,6 @@ input[type=submit]:hover
   clear: both;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) 
 {
   .col-25, .col-75, input[type=submit] 

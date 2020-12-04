@@ -33,35 +33,39 @@
         <div>
             <?php include('header.php'); ?>
         </div>
-        <div class="form-popup" id="myForm">
+
+        <div class="container">
+
+            <div class="imgcontainer">
+                <img src="image/logo.jpg" alt="Avatar" class="avatar">
+                <h3>Login To Book Cab</h3>
+            </div>
+
             <form action="" method="post">
-
-                <div class="imgcontainer">
-                    <img src="image/user-avatar.png" alt="Avatar" class="avatar">
-                </div>
-
                 <div>
-                    <label  class="col-25" for="username"><b>Username</b></label>
-                    <input  class="col-75" type="text" name="username" placeholder="Enter Username">
+                    <div class="row">
+                        <div class="col-25">
+                        <label  class="col-25" for="username"><b>Username</b></label>
+                        </div>
 
-                    <label  class="col-25" for="password"><b>Password</b></label>
-                    <input  class="col-75" type="password" name="password" placeholder="Enter Password">
+                        <div class="col-75">
+                        <input  class="col-75" type="text" name="username" placeholder="Enter Username"><br>
+                        </div>
+                    </div>
 
-                    <button type="submit" name="submit">Login</button>
-                    <!-- <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label> -->
+                    <div class="row">
+                        <div class="col-25">
+                            <label  class="col-25" for="password"><b>Password</b></label>
+                        </div>
+
+                        <div class="col-75">
+                            <input  class="col-75" type="password" name="password" placeholder="Enter Password">
+                        </div>
+                    </div>
                 </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="submit" class="cancelbtn" name="cancelbtn" id="cancelbtn"  style="float:right;">Home</button>
-                    <button type="submit" class="signup" name="signup" id="signup">Sign Up</button>
-                    <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
-                </div>
+ 
+                <button type="submit" name="submit">Login</button>
             </form>
         </div>
-
-        <?php include('footer.php'); ?>
-        
     </body>
 </html>

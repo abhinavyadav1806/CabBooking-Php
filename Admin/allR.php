@@ -91,7 +91,7 @@
 								   <th>Total Distance</th>
 								   <th>Luggage</th>
 								   <th>Total Fare</th>
-								   <th>Status</th>
+								   <!-- <th>Status</th> -->
 								   <th>User Id</th>
 								   <th>Complete</th>
 								   <th>Cancel</th>
@@ -114,7 +114,7 @@
 												echo "<td>" . $row['total_distance'] . "</td>";
 												echo "<td>" . $row['luggage'] . "</td>";
 												echo "<td>" . $row['total_fare'] . "</td>";
-												echo "<td>" . $row['status'] . "</td>";
+												// echo ($row['status']==1)?('<td>Pending</td>'):('<td>Completes</td>');
 												echo "<td>" . $row['user_id'] . "</td>";
 								
 												echo "<td>";

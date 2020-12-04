@@ -78,7 +78,7 @@
 												echo "<td>" . $row['total_distance'] . "</td>";
 												echo "<td>" . $row['luggage'] . "</td>";
 												echo "<td>" . $row['total_fare'] . "</td>";
-												echo "<td>" . $row['status'] . "</td>";
+												echo ($row['status']==0)?('<td>Cancelled</td>'):('<td>Active</td>');
 												echo "<td>" . $row['user_id'] . "</td>";
 											echo "</tr>";
 										}

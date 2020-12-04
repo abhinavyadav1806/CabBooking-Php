@@ -42,7 +42,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
 			<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-				<div class="card-header">Fare</div>
+				<div class="card-header"><a href="allU.php">Fare</a></div>
 					<div class="card-body">
 						<h5 class="card-title">Total User</h5>
 						<p class="card-text">
@@ -56,7 +56,7 @@
 
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
 				<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-					<div class="card-header">Users</div>
+					<div class="card-header"><a href="approvedU.php">Users</a></div>
 						<div class="card-body">
 							<h5 class="card-title">Number of Approved Users</h5>
 							<p class="card-text">
@@ -70,7 +70,7 @@
 
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
 				<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-					<div class="card-header">Request</div>
+					<div class="card-header"><a href="pendingU.php">Request</a></div>
 						<div class="card-body">
 							<h5 class="card-title">Number of Pending Request</h5>
 							<p class="card-text">

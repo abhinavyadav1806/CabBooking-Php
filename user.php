@@ -6,7 +6,6 @@
         {
             if($password != $repassword)
             {
-                // $error[] = array('password', 'msg' => 'Enter Same Password');
                 return 'Enter Same Password';
             }
             $sql = "SELECT * FROM tbl_user";
@@ -17,7 +16,10 @@
                 while($row=$result->fetch_assoc())
                 {
                     $_SESSION['user']=array('username'=>$row['user_name'], 'isblock'=>$row['is_block']);
-                    $strtolower = strtolower($username);
+
+                    $trimed_username = trim($username);
+                    $strtolower = strtolower($trimed_username);
+                    
                     if($_SESSION['user']['username'] == $strtolower)
                     {
                         return "Enter Unique User Name";
@@ -47,7 +49,6 @@
  
             if ($result->num_rows >0) 
             {
-            // output data of each row
                 while($row = $result->fetch_assoc()) 
                 {
                     $_SESSION['userdata'] = array('userid'=>$row['user_id'], 'username'=>$row['user_name'], 'name'=>$row['name'], 'dateofsignup'=>$row['dateofsignup'], 'mobile'=>$row['mobile'], 'isblock'=>$row['is_block'], 'password'=>$row['password'], 'isadmin'=>$row['is_admin']);
@@ -137,8 +138,7 @@
             
             if($connect->query($alpha) === TRUE)
             {
-                // echo "New Record Added Successfully";
-                header('Location: invoice.php');
+                header('Location: customerDash.php');
             }
             else
             {

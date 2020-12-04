@@ -2,12 +2,6 @@
 <html>
 <head>
   <style>
-  .welcome
-  {
-    padding: 12px;
-    text-align: center;
-  }
-
   ul 
   {
   list-style-type: none;
@@ -39,11 +33,6 @@
   a:link 
   {
     text-decoration: none;
-  }
-
-  .color
-  {
-    color:white;
   }
 
   li a:hover

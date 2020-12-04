@@ -2,22 +2,9 @@
 	session_start();
 
 	include('../dbConnect.php');
-	include('admin.php');
-	
+
 	include("header.php");
 	include("sidebar.php");
-
-	if(isset($_GET['id']))
-	{
-		// echo "<center>".$_GET['id']."</center>";
-		
-		$dbConnect = new dbConnect();
-		$admin = new admin();
-
-		$idpass = $_GET['id'];
-
-		$sql = $admin->General($idpass, $dbConnect->connect);
-	}
 ?>
 
 <html>
@@ -34,7 +21,7 @@
 			<!-- Page Head -->
 			<?php
 				echo "<h2>Welcome " .$_SESSION['userdata']['username']. "</h2>";
-				echo "<p id='page-intro'>This Is List Of All Pending Request Users.</p>"
+				echo "<p id='page-intro'>This Is List of All Location.</p>"
 			?>
 			
 			<div class="clear"></div> <!-- End .clear -->
@@ -44,33 +31,34 @@
 				<div class="content-box-content">
 					
 					<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
-						<table>	
+						<table>
+							
 							<thead>
 								<tr>
-								   <th>User Id</th>
-								   <th>UserName</th>
+								   <th>Id</th>
 								   <th>Name</th>
-								   <th>Date of Signup</th>
-								   <th>Mobile</th>
-								   <th>Is Block?</th>
+								   <th>Distance</th>
+								   <th>Is Available</th>
+								   <th>Action</th>
 								</tr>
 							</thead>
 
 							<tbody>
 								<?php 
 									$dbConnect = new dbConnect();
-
-									echo "<form method='POST'>";
-										$query = mysqli_query($dbConnect->connect, "SELECT * FROM tbl_user WHERE is_block = 0");
+									echo "<form>";
+										$query = mysqli_query($dbConnect->connect, "SELECT * FROM tbl_location WHERE is_available = 0");
 										while($row = mysqli_fetch_array($query))
 										{
 											echo "<tr>";
-												echo "<td>" . $row['user_id'] . "</td>";
-												echo "<td>" . $row['user_name'] . "</td>";
+												echo "<td>" . $row['id'] . "</td>";
 												echo "<td>" . $row['name'] . "</td>";
-												echo "<td>" . $row['dateofsignup'] . "</td>";
-												echo "<td>" . $row['mobile'] . "</td>";
-												echo ($row['is_block']==1)?('<td>Active</td>'):('<td>Blocked</td>');
+												echo "<td>" . $row['distance'] . "</td>";
+												echo "<td> Disable </td>";
+
+												echo "<td>";
+													echo "<a href='dellocation.php?id=".$row['id']."'>Enable</a>";
+												echo "</td>";
 											echo "</tr>";
 										}
 									echo "</form>";

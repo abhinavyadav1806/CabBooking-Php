@@ -112,7 +112,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">PICKUP</label>
                         </div>
-                        <select class="custom-select nosamelocation" id="current-location">
+                        <select class="custom-select nosamelocation pickup" id="current-location" onchange="disable()">
                             <option selected>
                                 <?php 
                                     if(isset($pickup))
@@ -137,7 +137,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
                         </div>
-                        <select class="custom-select nosamelocation" id="drop-location">
+                        <select class="custom-select nosamelocation drop" id="drop-location" onchange="dis()">
                         <option selected>
                                 <?php 
                                     if(isset($drop))
@@ -210,7 +210,7 @@
 
                     <div class="input-group mb-2 mt-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Your Total Distance is:--</span>
+                            <span class="input-group-text">Your Total Distance is: KM--</span>
                             <div id="distance" class="form-control"></div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <span class="text-danger">OLA CAB</span>
+                    <span class="text-danger">CedCab</span>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">

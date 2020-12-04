@@ -7,20 +7,15 @@
 			$dash = array('index.php');
 			$rides = array('pendingR.php', 'completedR.php', 'canceledR.php', 'allR.php');
 			$users = array('pendingU.php', 'approvedU.php', 'allU.php');
-			$location = array('locationL.php', 'addnewL.php');
+			$location = array('locationL.php', 'addnewL.php', 'UlocationL.php');
 			$account = array('changeP.php');
 		?>
-
-			<h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
-		  
 			<!-- Logo (221px wide) -->
-			<a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
-		  
+			<a href="#" class="navbar-brand mt-2"><span class="bg-dark text-white diff">Ced</span><span class="text-success diff">Cab</span></a>
+			
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
-				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
-				<br />
-				<a href="#" title="View the Site">View the Site</a> | <a href="logout.php" title="Sign Out">Sign Out</a>
+				<h5><a href="logout.php" title="Sign Out">Sign Out</a></h5>
 			</div>        
 			
 			<ul id="main-nav">  <!-- Accordion Menu -->
@@ -58,6 +53,7 @@
 					</a>
 					<ul>
 						<li><a <?php if($filename == 'locationL.php'): ?>class="current"<?php endif; ?> href="locationL.php">Location List</a></li>
+						<li><a <?php if($filename == 'UlocationL.php'): ?>class="current"<?php endif; ?> href="UlocationL.php">Unavailable Locations</a></li>
 						<li><a <?php if($filename == 'addnewL.php'): ?>class="current"<?php endif; ?> href="addnewL.php">Add New Location</a></li>
 					</ul>
 				</li>

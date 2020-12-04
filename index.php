@@ -21,7 +21,7 @@
             }
             else
             {
-                echo "<h3>You are not logged In, Please Login to Enjoy Service</h3>";
+                echo "<h3 style='color: orange'>You are not logged In, Please Login to Enjoy Service</h3>";
             }
         ?>
         </center>
@@ -83,7 +83,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">PICKUP</label>
                         </div>
-                        <select name="pickup" class="custom-select nosamelocation" id="current-location">
+                        <select name="pickup" class="custom-select nosamelocation pickup" id="current-location" onchange="disable()">
                             <option selected disabled>Current-location</option>
                             <option value="charbagh">Charbagh</option>
                             <option value="indiranagar">Indira Nagar</option>
@@ -100,7 +100,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">DROP</label>
                         </div>
-                        <select  name="drop" class="custom-select nosamelocation" id="drop-location">
+                        <select  name="drop" class="custom-select nosamelocation drop" id="drop-location" onchange="dis()">
                         <option selected disabled>Enter Drop for ride estimate</option>
                             <option value="charbagh">Charbagh</option>
                             <option value="indiranagar">Indira Nagar</option>
@@ -145,12 +145,12 @@
                     <div class="input-group mb-2">
                         <div class="input-group-prepend"></div>
                         <!-- <a class="form-control" id="book-now" class="form-control"  id="book-now" >Book Now</a> -->
-                        <input type="submit" id="book-now" class="form-control" name="book" id="book-now" value="Book Now">
+                        <input type="submit" id="book-now" class="form-control" name="book" value="Book Now">
                     </div>
 
                     <div class="input-group mb-2 mt-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Your Total Distance is:--</span>
+                            <span class="input-group-text">Your Total Distance is: KM--</span>
                             <div id="distance" class="form-control"></div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <span class="text-danger">OLA CAB</span>
+                <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-white diff">Cab</span></a>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">

@@ -39,26 +39,25 @@
 								   <th>Name</th>
 								   <th>Distance</th>
 								   <th>Is Available</th>
-								   <th>Delete</th>
+								   <th>Action</th>
 								</tr>
 							</thead>
 
 							<tbody>
 								<?php 
 									$dbConnect = new dbConnect();
-
 									echo "<form>";
-										$query = mysqli_query($dbConnect->connect, "SELECT * FROM tbl_location");
+										$query = mysqli_query($dbConnect->connect, "SELECT * FROM tbl_location WHERE is_available = 1");
 										while($row = mysqli_fetch_array($query))
 										{
 											echo "<tr>";
 												echo "<td>" . $row['id'] . "</td>";
 												echo "<td>" . $row['name'] . "</td>";
 												echo "<td>" . $row['distance'] . "</td>";
-												echo "<td>" . $row['is_available'] . "</td>";
+												echo "<td>" . ($row['is_available']==1)?('<td>Currently Active</td>'):('<td>Disable</td>')."</td>";
 
 												echo "<td>";
-													echo "<a href='dellocation.php?id=".$row['id']."'>Delete</a>";
+													echo "<a href='dellocation.php?id=".$row['id']."'>Disable</a>";
 												echo "</td>";
 
 											echo "</tr>";

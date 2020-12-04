@@ -8,16 +8,18 @@
 
 <html>
     <head>
+        <center>
         <?php
             if(isset($_SESSION['userdata']['username']))  
             {
-                echo "<h3>Hello <b>" .$_SESSION['userdata']['username']. "</b> </h3>";
+                echo "<h3> Hello <b>" .$_SESSION['userdata']['username']. "</b> </h3>";
             }
             else
             {
                 echo "<h3>You are not logged In</h3>";
             }
         ?>
+        </center>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,6 +94,7 @@
                     <th>Total Distance</th>
                     <th>Luggage</th>
                     <th>Total Fare</th>
+                    <th>Invoice</th>
                 </tr>';
 
                 $dbConnect = new dbConnect();
@@ -108,6 +111,10 @@
                         echo "<td>" . $row['total_distance'] . "</td>";
                         echo "<td>" . $row['luggage'] . "</td>";
                         echo "<td>" . $row['total_fare'] . "</td>";
+                        
+                        echo "<td>";
+                            echo "<a href='invoice.php?id=".$row['ride_id']."'>Invoice</a>";
+                        echo "</td>";
                     echo "</tr>";
                 }
                 echo '</table>';

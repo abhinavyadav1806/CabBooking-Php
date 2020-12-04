@@ -41,9 +41,14 @@
         <div>
             <?php include('header.php'); ?>
         </div>
+
         <div class="container">
-            <h1 class="heading">SignUp</h1>
-        
+
+            <div class="imgcontainer">
+                <img src="image/logo.jpg" alt="Avatar" class="avatar">
+                <h3>Sign Up To Book Cab</h3>
+            </div>
+
             <form action="" method="POST">
                 <div class="row">
                     <div class="col-25">
@@ -51,7 +56,7 @@
                     </div>
 
                     <div class="col-75">
-                        <input type="text" id="username" name="username" placeholder="Unique User Name..">
+                        <input type="text" id="username" name="username" placeholder="Unique User Name.." pattern="[a-zA-Z0-9_]{1,20}" title="NO SPACE ALLOWED ENTER ONLY LETTERS AND NUMBERS" required>
                     </div>
                 </div>
 
@@ -61,7 +66,7 @@
                     </div>
 
                     <div class="col-75">
-                        <input type="text" id="name" name="name" placeholder="Enter Name..">
+                        <input type="text" id="name" name="name" placeholder="Enter Name.." pattern="[a-zA-Z_]+([a-zA-Z]+){1,20}" title="Only letters are accepted" required>
                     </div>
                 </div>
 
@@ -71,7 +76,7 @@
                     </div>
 
                     <div class="col-75">
-                        <input type="number" id="mobile" name="mobile" placeholder="Enter Mobile Number..">
+                        <input type="number" id="mobile" name="mobile" placeholder="Enter Mobile Number.." required>
                     </div>
                 </div>
 
@@ -81,7 +86,7 @@
                     </div>
 
                     <div class="col-75">
-                        <input type="password" id="password" name="password" placeholder="Enter Password..">
+                        <input type="password" id="password" name="password" placeholder="Enter Password.." required>
                     </div>
                 </div>
 
@@ -91,23 +96,22 @@
                     </div>
 
                     <div class="col-75">
-                        <input type="password" id="repassword" name="repassword" placeholder="Enter Password Again..">
+                        <input type="password" id="repassword" name="repassword" placeholder="Enter Password Again.." required>
                     </div>
                 </div>
 
                 <div class="row">
                     <input type="submit" name="submit" value="Submit">
                 </div>
+            </form>
 
+            <form>
                 <div class="row">
                     <input type="submit" id="already" name="already" value="Already Customer? Login">
                 </div>
-
-                <div class="row">
-                    <input type="submit" id="home" name="home" value="Home Page">
-                </div>
             </form>
+
+
         </div>
     </body>
-    <?php include('footer.php'); ?>
 </html>

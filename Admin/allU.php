@@ -57,7 +57,6 @@
 						</form>
 
 						<?php
-
 							if (isset($_POST['submit'])) 
 							{
 								$dbConnect = new dbConnect();
@@ -105,7 +104,7 @@
 												echo "<td>" . $row['name'] . "</td>";
 												echo "<td>" . $row['dateofsignup'] . "</td>";
 												echo "<td>" . $row['mobile'] . "</td>";
-												echo "<td>" . $row['is_block'] . "</td>";
+												echo ($row['is_block']==1)?('<td>Active</td>'):('<td>Blocked</td>');
 
 												echo "<td>";
 													echo "<a href='allU.php?id=".$row['user_id']."'>Approve/Cancel</a>";
