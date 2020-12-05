@@ -158,7 +158,6 @@
                     </div>
                     <p id="dropmsg" class="msgstyle">Enter Destination </p>
 
-
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <label class="input-group-text text_size" for="inputGroupSelect01">CAB TYPE</label>
@@ -184,7 +183,6 @@
                     </div>
                     <p id="cartypemsg" class="msgstyle">Enter CarType </p>
                     
-
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text text_size">Luggage</span>
@@ -192,7 +190,6 @@
                         <input onkeypress="return onlynumber(event)" type="text" class="form-control" id="luggage" placeholder="Enter Weight In KG" value="<?php if(isset($luggage)){ echo $luggage;} else{echo "Enter Weight In KG"; }?>" >
                     </div>
                     <p id="luggagemsgintonly" class="msgstyle">Enter detail && Number allowed only</p>
-
 
                     <input type="hidden" id="fare">
                     <div class="input-group mb-2">
@@ -206,7 +203,6 @@
                         <a class="form-control" id="book-now" class="form-control" href="tobook.php" id="book-now" >Book Now</a>
                         <!-- <input type="button" id="book-now" class="form-control" id="book-now" value="Book Now"> -->
                     </div>
-
 
                     <div class="input-group mb-2 mt-3">
                         <div class="input-group-prepend">

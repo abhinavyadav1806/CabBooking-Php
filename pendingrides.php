@@ -81,42 +81,48 @@
             </nav>
         </header>
 
-        <div class="select mt-5">
-            <?php
-                echo'<h2 class="h2 text-center">Your Pending Rides</h2>';
-                echo'<table id="table" class="mt-5">
+        <div class='container'>
+            <h2 class="text-center text-info m-3">Your Pending Rides</h2>
+            <input type='hidden' id='sort' value='asc'>
+            <table width='100%' id='empTable' border='1' cellpadding='10'>
                 <tr>
-                    <th>Ride Id</th>
-                    <th>Ride Date</th>
-                    <th>Pickup</th>
-                    <th>Destination</th>
-                    <th>Total Distance</th>
-                    <th>Luggage</th>
-                    <th>Total Fare</th>
-                </tr>';
+                    <th><span onclick='sortTable("ride_id");'>Ride Id</span></th>
+                    <th><span onclick='sortTable("ride_date");'>Ride Date</span></th>
+                    <th><span>Pickup</span></th>
+                    <th><span>Destination</span></th>
+                    <th><span onclick='sortTable("total_distance");'>Total Distance</a></th>
+                    <th><span onclick='sortTable("luggage");'>Luggage</a></th>
+                    <th><span onclick='sortTable("total_fare");'>Total Fare</a></th>
+                </tr>
 
-                $dbConnect = new dbConnect();
-                $x = $_SESSION['userdata']['userid'];
-                
-                $query = mysqli_query($dbConnect->connect, "SELECT * FROM tbl_ride WHERE user_id = '$x' AND status = '1'");
-                while($row = mysqli_fetch_array($query))
-                {
-                    echo "<tr>";
-                        echo "<td>" . $row['ride_id'] . "</td>";
-                        echo "<td>" . $row['ride_date'] . "</td>";
-                        echo "<td>" . $row['pickup'] . "</td>";
-                        echo "<td>" . $row['destination'] . "</td>";
-                        echo "<td>" . $row['total_distance'] . "</td>";
-                        echo "<td>" . $row['luggage'] . "</td>";
-                        echo "<td>" . $row['total_fare'] . "</td>";
-                    echo "</tr>";
+                <?php 
+                    $query = "SELECT * FROM tbl_ride ORDER BY ride_id ASC";
+                    $result = mysqli_query($dbConnect->connect,$query);
+
+                    while($row = mysqli_fetch_array($result))
+                    {
+                    $ride_id  = $row['ride_id'];
+                    $ride_date = $row['ride_date'];
+                    $pickup = $row['pickup'];
+                    $destination = $row['destination'];
+                    $total_distance = $row['total_distance'];
+                    $luggage = $row['luggage'];
+                    $total_fare = $row['total_fare'];
+                ?>
+
+                <tr>
+                    <td><?php echo $ride_id; ?></td>
+                    <td><?php echo $ride_date; ?></td>
+                    <td><?php echo $pickup; ?></td>
+                    <td><?php echo $destination; ?></td>
+                    <td><?php echo $total_distance; ?></td>
+                    <td><?php echo $luggage; ?></td>
+                    <td><?php echo $total_fare; ?></td>
+                </tr>
+                <?php
                 }
-                echo '</table>';
-            ?>
-            <link rel='stylesheet' href='css/allrides.css'>
-            <br>
-            <br>
-            <h4><a href='customerDash.php' style=" margin-left: 25%;">Go Back</a></h4>
-        </div>              
+                ?>
+            </table>
+        </div>             
     </body>
 </html>
