@@ -89,8 +89,8 @@
          <div class='container'>
             <h2 class="text-center text-info m-3">Your Completed Rides With Us</h2>
             <!-- <input type='hidden' id='sort' value='asc'> -->
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup..">
-            <table width='100%' id="empTable" border='1' cellpadding='10'>
+            <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup.."> -->
+            <table width='100%' border='1' cellpadding='10'>
                 <tr>
                     <th><span onclick='sortTable("ride_id");'>Ride Id</span></th>
                     <th><span onclick='sortTable("ride_date");'>Ride Date</span></th>

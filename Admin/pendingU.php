@@ -58,6 +58,7 @@
 								   <th>Date of Signup</th>
 								   <th>Mobile</th>
 								   <th>Is Block?</th>
+								   <th>Action</th>
 								</tr>
 							</thead>
 
@@ -76,6 +77,10 @@
 												echo "<td>" . $row['dateofsignup'] . "</td>";
 												echo "<td>" . $row['mobile'] . "</td>";
 												echo ($row['is_block']==1)?('<td>Active</td>'):('<td>Blocked</td>');
+
+												echo "<td>";
+													echo "<a href='pendingU.php?id=".$row['user_id']."'>Approve</a>";
+												echo "</td>";
 											echo "</tr>";
 										}
 									echo "</form>";

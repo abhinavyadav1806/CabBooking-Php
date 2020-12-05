@@ -45,7 +45,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 ">
-            <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-white diff">Cab</span></a>
+            <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-success diff">Cab</span></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar_menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,9 +56,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="signup.php" class="nav-link">Sign up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Review</a>
                     </li>
                 </ul>
             </div>     
@@ -177,13 +174,12 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-white diff">Cab</span></a>
+                <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-success diff">Cab</span></a>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">
                     <button class="btn btn-link">FEATURES</button>
                     <button class="btn btn-link">REVIEWS</button>
-                    <button class="btn btn-link">SIGNUP</button>
                 </div>
             </div>
         </div>

@@ -41,6 +41,7 @@
 								   <th>Is Available</th>
 								   <th>Disable</th>
 								   <th>Delete</th>
+								   <th>Edit Location</th>
 								</tr>
 							</thead>
 
@@ -63,6 +64,10 @@
 
 												echo "<td>";
 													echo "<a onclick=\"return confirm('Do You Want To Delete this record?')\" href=\"deleteLoc.php?id=".$row['id']."\">Delete</a>";
+												echo "</td>";
+
+												echo "<td>";
+													echo "<a onclick=\"return confirm('Do You Want To Edit this record?')\" href=\"editLoc.php?id=".$row['id']."\">Edit Location</a>";
 												echo "</td>";
 
 											echo "</tr>";

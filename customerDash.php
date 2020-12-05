@@ -83,7 +83,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="update.php">Update Info</a>
                             <a class="dropdown-item" href="changepassword.php">Change Password</a>
-                            <a class="dropdown-item" href="filter.php">Filter</a>
+                            <!-- <a class="dropdown-item" href="filter.php">Filter</a> -->
                         </div>
                     </li>
 
@@ -240,7 +240,6 @@
                 <div class="col-sm-4 btn-group btn-group-sm">
                     <button class="btn btn-link">FEATURES</button>
                     <button class="btn btn-link">REVIEWS</button>
-                    <button class="btn btn-link">SIGNUP</button>
                 </div>
             </div>
         </div>

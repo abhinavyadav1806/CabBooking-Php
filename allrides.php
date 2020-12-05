@@ -92,13 +92,13 @@
             <input type='hidden' id='sort' value='asc'>
             <table width='100%' id='empTable' border='1' cellpadding='10'>
                 <tr>
-                    <th><span onclick='sortTable("ride_id");'>Ride Id</span></th>
-                    <th><span onclick='sortTable("ride_date");'>Ride Date</span></th>
+                    <th><span onclick='sortTable("ride_id");'>Ride Id ^</span></th>
+                    <th><span onclick='sortTable("ride_date");'>Ride Date ^</span></th>
                     <th><span>Pickup</span></th>
                     <th><span>Destination</span></th>
-                    <th><span onclick='sortTable("total_distance");'>Total Distance</a></th>
-                    <th><span onclick='sortTable("luggage");'>Luggage</a></th>
-                    <th><span onclick='sortTable("total_fare");'>Total Fare</a></th>
+                    <th><span onclick='sortTable("total_distance");'>Total Distance ^</a></th>
+                    <th><span onclick='sortTable("luggage");'>Luggage ^</a></th>
+                    <th><span onclick='sortTable("total_fare");'>Total Fare ^</a></th>
                 </tr>
 
                 <?php 
