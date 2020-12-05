@@ -57,7 +57,7 @@
 												echo "<td> Disable </td>";
 
 												echo "<td>";
-													echo "<a href='dellocation.php?id=".$row['id']."'>Enable</a>";
+													echo "<a onclick=\"return confirm('This will Enable your Location?')\" href='disableLoc.php?id=".$row['id']."'>Enable</a>";
 												echo "</td>";
 											echo "</tr>";
 										}

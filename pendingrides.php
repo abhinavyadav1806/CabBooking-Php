@@ -32,6 +32,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/infopage.css">
         <link rel="stylesheet" href="css/dashboard.css">
+
+        <link rel="stylesheet" href="css/filter.css">
         <!-- ICON -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <title>CedCab</title>
@@ -84,6 +86,7 @@
         <div class='container'>
             <h2 class="text-center text-info m-3">Your Pending Rides</h2>
             <input type='hidden' id='sort' value='asc'>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup..">
             <table width='100%' id='empTable' border='1' cellpadding='10'>
                 <tr>
                     <th><span onclick='sortTable("ride_id");'>Ride Id</span></th>

@@ -32,6 +32,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/infopage.css">
         <link rel="stylesheet" href="css/dashboard.css">
+
+        <link rel="stylesheet" href="css/filter.css">
         <!-- ICON -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <title>CedCab</title>
@@ -83,38 +85,10 @@
             </nav>
         </header>
 
-        <div class="select mt-5">
-            <!-- <form action="allrides.php" method="POST">
-                <center>Filter Value:-
-                    <select name="filter" id="filter">
-                        <option value="Select Value">Select Value</option>
-                        <option value="30">30 days</option>
-                        <option value="1">By Fare</option>
-                    </select>
-                    <input type="submit" value="submit" name="submit" class="submit">
-                </center>
-            </form> -->
-
-            <?php
-                // if(isset($_POST['submit'])) 
-                // {
-                //     $filter = isset($_POST['filter'])?$_POST['filter']:'';
-                //     if($filter==1)
-                //     {
-                //         $a='<table> <tr><th>Id</th> <th>Date</th> <th>Pickup</th> <th>Drop</th> <th>Distance</th> <th>Fare</th> <th>Luggage</th> </tr><tr>';
-                //         $user->filter($a,$filter,$dbConnect->connect);
-                //     }
-                //     else
-                //     {
-                //         $a='<table><tr><th>Id</th><th>User Name</th><th>Name</th><th>Date Of Signup</th><th>Mobile</th></tr><tr>';
-                //         $user->filter($a,$filter,$dbConnect->connect);
-                //     }
-                // }
-            ?>
-        </div>    
-
+        <!-- SORTING -->
         <div class='container'>
             <h2 class="text-center text-info m-3">Your Rides With Us Till Now</h2>
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup..">
             <input type='hidden' id='sort' value='asc'>
             <table width='100%' id='empTable' border='1' cellpadding='10'>
                 <tr>

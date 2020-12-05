@@ -39,7 +39,8 @@
 								   <th>Name</th>
 								   <th>Distance</th>
 								   <th>Is Available</th>
-								   <th>Action</th>
+								   <th>Disable</th>
+								   <th>Delete</th>
 								</tr>
 							</thead>
 
@@ -57,7 +58,11 @@
 												echo "<td>" . ($row['is_available']==1)?('<td>Currently Active</td>'):('<td>Disable</td>')."</td>";
 
 												echo "<td>";
-													echo "<a href='dellocation.php?id=".$row['id']."'>Disable</a>";
+													echo "<a onclick=\"return confirm('Disable this record?')\" href=\"disableLoc.php?id=".$row['id']."\">Disable</a>";
+												echo "</td>";
+
+												echo "<td>";
+													echo "<a onclick=\"return confirm('Do You Want To Delete this record?')\" href=\"deleteLoc.php?id=".$row['id']."\">Delete</a>";
 												echo "</td>";
 
 											echo "</tr>";

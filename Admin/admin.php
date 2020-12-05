@@ -36,7 +36,8 @@
             if($connect ->query($update) === TRUE)
             {
                 echo "INFORMATION UPDATED Successfully";
-                // header("Location: changeI.php");
+                // return '<script>alert("INFORMATION UPDATED Successfully")</script>'; 
+                // header("Location: index.php");
             }
         }
 

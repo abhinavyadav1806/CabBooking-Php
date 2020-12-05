@@ -42,11 +42,9 @@
 			<div class="content-box"><!-- Start Content Box -->
 				
 				<div class="content-box-content">
-					
-					<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+					<div class="tab-content default-tab" id="tab1">
 					<div class="select">
-
-						<form action="allU.php" method="POST">
+						<!-- <form action="allU.php" method="POST">
 							<center>Filter Value:-
 								<select name="filter" id="filter">
 									<option value="Select Value">Select Value</option>
@@ -54,30 +52,36 @@
 								</select>
 								<input type="submit" value="submit" name="submit" class="submit">
 							</center>
-						</form>
+						</form> -->
 
 						<?php
-							if (isset($_POST['submit'])) 
-							{
-								$dbConnect = new dbConnect();
-								$ab = new admin();
+							// if (isset($_POST['submit'])) 
+							// {
+							// 	$dbConnect = new dbConnect();
+							// 	$ab = new admin();
 
-								$filter=isset($_POST['filter'])?$_POST['filter']:'';
-								if($filter=='fare'|| $filter=='date')
-								{
-									$a= "<table><tr><th>Ride_id</th><th>Ride_date</th><th>Pickup</th><th>Drop</th><th>Distance</th><th>Fare</th><th>Laugage</th></tr><tr>";
-									$ab->filterrr($a,$filter,$dbConnect->connect);
-								}
-								else
-								{
-									$a='<table><tr> <th><b>UserName</b></th>  <th><b>Name</b></th> <th><b>Contact</b></th> <th><b>Date</b></th> </tr><tr>';
-									$ab->filterrr($a,$filter,$dbConnect->connect);
-								}
-							}
+							// 	$filter=isset($_POST['filter'])?$_POST['filter']:'';
+							// 	if($filter=='fare'|| $filter=='date')
+							// 	{
+							// 		$a= "<table><tr><th>Ride_id</th><th>Ride_date</th><th>Pickup</th><th>Drop</th><th>Distance</th><th>Fare</th><th>Laugage</th></tr><tr>";
+							// 		$ab->filterrr($a,$filter,$dbConnect->connect);
+							// 	}
+							// 	else
+							// 	{
+							// 		$a='<table><tr> <th><b>UserName</b></th>  <th><b>Name</b></th> <th><b>Contact</b></th> <th><b>Date</b></th> </tr><tr>';
+							// 		$ab->filterrr($a,$filter,$dbConnect->connect);
+							// 	}
+							// }
 						?>
 					</div>
-					
-					<table>
+
+
+					<center>
+						<link rel="stylesheet" href="resources/css/filter.css">
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+					<center>
+
+					<table id="myTable">
 							<thead>
 								<tr>
 								   <th>User Id</th>
@@ -117,6 +121,32 @@
 						</table>
 					</div> <!-- End #tab1 -->					
 				</div> <!-- End .content-box-content -->
+
+				<script>
+					function myFunction() 
+					{
+						var input, filter, table, tr, td, i, txtValue;
+						input = document.getElementById("myInput");
+						filter = input.value.toUpperCase();
+						table = document.getElementById("myTable");
+						tr = table.getElementsByTagName("tr");
+						for (i = 0; i < tr.length; i++) 
+						{
+							td = tr[i].getElementsByTagName("td")[2];
+							if (td) 
+							{
+								txtValue = td.textContent || td.innerText;
+								if (txtValue.toUpperCase().indexOf(filter) > -1) 
+								{
+									tr[i].style.display = "";
+								} else 
+								{
+									tr[i].style.display = "none";
+								}
+							}       
+						}
+					}
+				</script>	
 				
 			</div> <!-- End .content-box -->
 					
