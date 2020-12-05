@@ -44,8 +44,11 @@
 				<div class="content-box-content">
 					
 					<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
-						<table>
-							
+						<center>
+							<link rel="stylesheet" href="resources/css/filter.css">
+							<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+						<center>
+						<table  id="myTable">
 							<thead>
 								<tr>
 								   <th>User Id</th>
@@ -83,6 +86,32 @@
 				</div> <!-- End .content-box-content -->
 				
 			</div> <!-- End .content-box -->
+
+			<script>
+				function myFunction() 
+				{
+					var input, filter, table, tr, td, i, txtValue;
+					input = document.getElementById("myInput");
+					filter = input.value.toUpperCase();
+					table = document.getElementById("myTable");
+					tr = table.getElementsByTagName("tr");
+					for (i = 0; i < tr.length; i++) 
+					{
+						td = tr[i].getElementsByTagName("td")[2];
+						if (td) 
+						{
+							txtValue = td.textContent || td.innerText;
+							if (txtValue.toUpperCase().indexOf(filter) > -1) 
+							{
+								tr[i].style.display = "";
+							} else 
+							{
+								tr[i].style.display = "none";
+							}
+						}       
+					}
+				}
+			</script>	
 					
 			<div class="clear"></div>
 	

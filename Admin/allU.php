@@ -44,7 +44,7 @@
 				<div class="content-box-content">
 					<div class="tab-content default-tab" id="tab1">
 					<div class="select">
-						<!-- <form action="allU.php" method="POST">
+						<form action="allU.php" method="POST">
 							<center>Filter Value:-
 								<select name="filter" id="filter">
 									<option value="Select Value">Select Value</option>
@@ -52,30 +52,29 @@
 								</select>
 								<input type="submit" value="submit" name="submit" class="submit">
 							</center>
-						</form> -->
+						</form>
 
 						<?php
-							// if (isset($_POST['submit'])) 
-							// {
-							// 	$dbConnect = new dbConnect();
-							// 	$ab = new admin();
+							if (isset($_POST['submit'])) 
+							{
+								$dbConnect = new dbConnect();
+								$ab = new admin();
 
-							// 	$filter=isset($_POST['filter'])?$_POST['filter']:'';
-							// 	if($filter=='fare'|| $filter=='date')
-							// 	{
-							// 		$a= "<table><tr><th>Ride_id</th><th>Ride_date</th><th>Pickup</th><th>Drop</th><th>Distance</th><th>Fare</th><th>Laugage</th></tr><tr>";
-							// 		$ab->filterrr($a,$filter,$dbConnect->connect);
-							// 	}
-							// 	else
-							// 	{
-							// 		$a='<table><tr> <th><b>UserName</b></th>  <th><b>Name</b></th> <th><b>Contact</b></th> <th><b>Date</b></th> </tr><tr>';
-							// 		$ab->filterrr($a,$filter,$dbConnect->connect);
-							// 	}
-							// }
+								$filter=isset($_POST['filter'])?$_POST['filter']:'';
+								if($filter=='fare'|| $filter=='date')
+								{
+									$a= "<table><tr><th>Ride_id</th><th>Ride_date</th><th>Pickup</th><th>Drop</th><th>Distance</th><th>Fare</th><th>Laugage</th></tr><tr>";
+									$ab->filterrr($a,$filter,$dbConnect->connect);
+								}
+								else
+								{
+									$a='<table><tr> <th><b>UserName</b></th>  <th><b>Name</b></th> <th><b>Contact</b></th> <th><b>Date</b></th> </tr><tr>';
+									$ab->filterrr($a,$filter,$dbConnect->connect);
+								}
+							}
 						?>
 					</div>
-
-
+					
 					<center>
 						<link rel="stylesheet" href="resources/css/filter.css">
 						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
