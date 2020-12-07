@@ -40,7 +40,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 ">
-            <a href="customerDash.php" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
+            <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar_menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
