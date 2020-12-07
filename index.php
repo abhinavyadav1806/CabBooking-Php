@@ -1,14 +1,9 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['userdata']['username']))
+    if(isset($_SESSION['userdata']['isadmin']) == 0)
     {
-        header("Location: customerDash.php");
-    }
-    if(isset($_SESSION['userdata']['isadmin']) == 1)
-    {
-        header("Location: login.php");
-    }
+     
 ?>
 
 <html>
@@ -45,7 +40,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 ">
-            <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-success diff">Cab</span></a>
+            <a href="customerDash.php" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar_menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,7 +65,7 @@
             <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4">
                 <form class="bg-white p-1" action="tobook.php" method="POST">
                     <div class="content">
-                        <p class="text-center"><span class="taxi mt-3">CITY TAXI</span></p>
+                        <p class="text-center mt-2"><span class="taxi mt-3">CITY TAXI</span></p>
                         <hr>
                         <h5 class="pt-1 text-center"><b>Your everyday travel partner</b></h5>
                         <p class="text-center">AC cabs for point to point travel</p>
@@ -174,7 +169,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                <a href="#" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="text-success diff">Cab</span></a>
+                <a href="customerDash.php" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">
@@ -262,3 +257,11 @@
         </script>
     </body>
 </html>
+
+<?php 
+}
+else
+{
+    header("Location: login.php");
+} 
+?>

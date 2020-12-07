@@ -1,7 +1,8 @@
 <?php
 	include('dbConnect.php');
-    include('user.php');
+	include('user.php');
 
+	$ride_id = $_GET['id'];
     $dbConnect = new dbConnect();
     $user = new user();
 ?>
@@ -20,14 +21,32 @@
 
 </head>
 
-<body>
-	<div id="page-wrap">
-		<textarea id="header">INVOICE</textarea>
-				
-		<div style="clear:both"></div>
-		
-		<div id="customer">
+<?php 
+	// $query = "SELECT * FROM tbl_ride ORDER BY ride_id ASC";
+	$query = "SELECT * FROM tbl_ride WHERE ride_id = '$ride_id' AND status = '2'";
+	$result = mysqli_query($dbConnect->connect,$query);
 
+	while($row = mysqli_fetch_array($result))
+	{
+		$ride_id  = $row['ride_id'];
+		$ride_date = $row['ride_date'];
+		$pickup = $row['pickup'];
+		$destination = $row['destination'];
+		$total_distance = $row['total_distance'];
+		$luggage = $row['luggage'];
+		$total_fare = $row['total_fare'];
+	}
+?>
+
+<body>
+	<h2><a href="javascript:window.print()">Click To Print</a></h2> 
+	<h2><a href="completedrides.php">Go Back</a></h2>
+
+	<div id="page-wrap">
+	
+		<textarea id="header">INVOICE</textarea>
+		<div style="clear:both"></div>
+		<div id="customer">
             <div id="customer-title">
 				<table id="meta">
 					<tr>
@@ -55,12 +74,12 @@
 				
                 <tr>
                     <td class="meta-head">Pickup</td>
-                    <td id="date"><?php echo $_SESSION['ride']['pickup'];?></td>
+                    <td id="date"><?php echo $pickup; ?></td>
 				</tr>
 				
 				<tr>
                     <td class="meta-head">Drop</td>
-                    <td id="date"> <?php echo $_SESSION['ride']['drop'];?></td>
+                    <td id="date"> <?php echo $destination;?></td>
 				</tr>
             </table>
 		
@@ -77,11 +96,11 @@
 		  </tr>
 		  
 		  <tr class="item-row">
-		      <td><?php echo $_SESSION['ride']['pickup'];?></td>
-			  <td><?php echo $_SESSION['ride']['drop'];?></td>
-			  <td><?php echo $_SESSION['ride']['distance'];?></td>
-			  <td><?php echo $_SESSION['ride']['luggage'];?></td>
-			  <td><?php echo $_SESSION['ride']['fare'];?></td>
+		      <td><?php echo $pickup; ?></td>
+			  <td><?php echo $destination;?></td>
+			  <td><?php echo $total_distance; ?></td>
+			  <td><?php echo $luggage; ?></td>
+			  <td><?php echo $total_fare;?></td>
 		  </tr>
 		  
 		  <tr id="hiderow">
@@ -91,13 +110,13 @@
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Subtotal</td>
-		      <td class="total-value"><div id="subtotal">$<?php echo $_SESSION['ride']['fare'];?></div></td>
+		      <td class="total-value"><div id="subtotal">$<?php echo $total_fare; ?></div></td>
 		  </tr>
 
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Total</td>
-		      <td class="total-value"><div id="total">$<?php echo $_SESSION['ride']['fare'];?></div></td>
+		      <td class="total-value"><div id="total">$<?php echo $total_fare; ?></div></td>
 		  </tr>
 
 		  <tr>
@@ -110,17 +129,14 @@
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line balance">Balance Due</td>
-		      <td class="total-value balance"><div class="due">$<?php echo $_SESSION['ride']['fare'];?></div></td>
+		      <td class="total-value balance"><div class="due">$<?php echo $total_fare; ?></div></td>
 		  </tr>
 		</table>
 		
 		<div id="terms">
 		  <h5>NOTICE</h5>
-		  <textarea>**THIS INVOICE DOESN'T SURE YOUR RIDE CONFIRMATION**</textarea>
+		  <textarea>**THIS INVOICE ENSURE YOUR RIDE CONFIRMATION**</textarea>
 		</div>
-
-		<h2><a href="javascript:window.print()">Click To Print</a></h2> 
-		<h2><a href="completedrides.php">Go Back</a></h2>
 	</div>
 </body>
 </html>

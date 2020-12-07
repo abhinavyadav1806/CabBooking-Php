@@ -97,6 +97,7 @@
                             $user->total_fare($dbConnect->connect);
                         ?>
                     </h1>
+                   
                 </div>
 
                 <div class="column" style="background-color: #0cc71c;">
@@ -105,6 +106,8 @@
                         <?php 
                             $user->total_rides($dbConnect->connect);
                         ?>
+                        <br>
+                        <button class="btn btn-dark" onclick="window.location.href='allrides.php'">Total Rides</button>
                     </h1>
                 </div>
 
@@ -114,6 +117,8 @@
                         <?php 
                             $user->pending_rides($dbConnect->connect);
                         ?>
+                        <br>
+                        <button class="btn btn-dark mt-4" onclick="window.location.href='pendingrides.php'">Upcoming Rides</button>
                     </h1>
                 </div>
             </div>
@@ -129,7 +134,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <span class="text-danger">OLA CAB</span>
+                <a href="customerDash.php" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">

@@ -13,14 +13,6 @@
         $sql = $user->login($username, $password, $dbConnect->connect);
         echo $sql;
     }
-    elseif(isset($_POST['cancelbtn']))
-    {
-        header("Location: index.php");
-    }
-    elseif(isset($_POST['signup']))
-    {
-        header("Location: signup.php");
-    }
 ?>
 <html>
     <head>

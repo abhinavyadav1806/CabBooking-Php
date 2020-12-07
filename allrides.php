@@ -85,10 +85,10 @@
             </nav>
         </header>
 
-        <!-- SORTING -->
         <div class='container'>
             <h2 class="text-center text-info m-3">Your Rides With Us Till Now</h2>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup..">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pickup..">
+            
             <input type='hidden' id='sort' value='asc'>
             <table width='100%' id='empTable' border='1' cellpadding='10'>
                 <tr>

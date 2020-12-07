@@ -102,7 +102,7 @@
             <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4">
                 <form class="bg-white p-1" action="" method="POST">
                     <div class="content">
-                        <p class="text-center"><span class="taxi mt-3">CITY TAXI</span></p>
+                        <p class="text-center mt-2"><span class="taxi mt-3">CITY TAXI</span></p>
                         <hr>
                         <h5 class="pt-1 text-center"><b>Your everyday travel partner</b></h5>
                         <p class="text-center">AC cabs for point to point travel</p>
@@ -234,7 +234,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <span class="text-danger">CedCab</span>
+                <a href="customerDash.php" class="navbar-brand pl-5"><span class="bg-dark text-white diff">Ced</span><span class="bg-dark text-white diff">Cab</span></a>
                 </div>
 
                 <div class="col-sm-4 btn-group btn-group-sm">

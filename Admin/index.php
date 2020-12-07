@@ -1,5 +1,8 @@
-<?php 
+<?php
 	session_start();
+	if($_SESSION['userdata']['isadmin'] == 1)
+    {
+
 	include('../dbConnect.php');
 	include('admin.php');
 
@@ -11,7 +14,6 @@
 
 	if(isset($_GET['id']))
 	{
-		// echo "<center>".$_GET['id']."</center>";
 		$idpass = $_GET['id'];
 		$sql = $admin->General($idpass, $dbConnect->connect);
 	}
@@ -128,3 +130,9 @@
 	</div>
 </div>
 
+<?php 
+}
+else
+{
+	header('Location: ../index.php');
+}
