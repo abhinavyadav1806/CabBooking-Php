@@ -96,9 +96,9 @@
                     <th><span onclick='sortTable("ride_date");'>Ride Date ^</span></th>
                     <th><span>Pickup</span></th>
                     <th><span>Destination</span></th>
-                    <th><span onclick='sortTable("total_distance");'>Total Distance ^</a></th>
-                    <th><span onclick='sortTable("luggage");'>Luggage ^</a></th>
-                    <th><span onclick='sortTable("total_fare");'>Total Fare ^</a></th>
+                    <th><span onclick='sortTable("total_distance");'>Total Distance(km) ^</a></th>
+                    <th><span onclick='sortTable("luggage");'>Luggage(Kg) ^</a></th>
+                    <th><span onclick='sortTable("total_fare");'>Total Fare(Rs) ^</a></th>
                 </tr>
 
                 <?php 
